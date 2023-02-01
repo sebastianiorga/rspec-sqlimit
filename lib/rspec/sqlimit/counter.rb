@@ -35,7 +35,7 @@ module RSpec::SQLimit
 
         queries << {
           sql: values[:sql],
-          trace: caller.select { |e| e.match?('rails-eav') },
+          trace: caller.select { |e| e.match?('rails-eav') }.map { |e| e.split('/rails-eav/').last },
           duration: (finish - start) * 1_000,
           binds: values[:type_casted_binds] || type_cast(values[:binds])
         }
