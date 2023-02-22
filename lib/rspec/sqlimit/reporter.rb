@@ -31,7 +31,7 @@ module RSpec::SQLimit
       trace = query[:trace].map { |e| "    -- #{e}" }.join("\n")
       "#{prefix} #{index + 1}) #{query[:sql]}#{binds}" \
       " (#{query[:duration].round(3)} ms)" \
-      "#{trace}"
+      "\n#{trace}"
     end
   end
 end
